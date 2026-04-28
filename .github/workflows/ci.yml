@@ -1,0 +1,15 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check API Health
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://api.ideafactorylab.org/stats)
+          echo "API status: $STATUS"
+          test "$STATUS" = "200"
