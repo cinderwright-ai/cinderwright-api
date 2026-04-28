@@ -1,5 +1,6 @@
 # Cinderwright API + Discovery Hub
 
+[![SafeSkill 50/100](https://img.shields.io/badge/SafeSkill-50%2F100_Use%20with%20Caution-orange)](https://safeskill.dev/scan/cinderwright-ai-cinderwright-api)
 **The search engine for the x402 agent economy.**
 
 Find, compare, and use x402 services across the ecosystem. 152+ services indexed. Pay-per-query with USDC on Base.
