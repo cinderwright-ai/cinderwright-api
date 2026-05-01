@@ -1,101 +1,96 @@
-# Cinderwright: Discovery Hub + Trust Layer + Starter Kit
+# Cinderwright: The Only Cross-Protocol Agent Payments Hub
 
-**Three products. One API. The infrastructure layer for the x402 agent economy.**
+**Discovery Hub + Trust Layer + Market Intelligence + Starter Kit**
 
-[![Glama](https://glama.ai/mcp/servers/cinderwright-ai/cinderwright-api/badges/score.svg)](https://glama.ai/mcp/servers/cinderwright-ai/cinderwright-api) [![MCP Registry](https://img.shields.io/badge/MCP_Registry-published-green)](https://registry.modelcontextprotocol.io) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Glama](https://glama.ai/mcp/servers/cinderwright-ai/cinderwright-api/badges/score.svg)](https://glama.ai/mcp/servers/cinderwright-ai/cinderwright-api) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
----
+**1,551 services across 3 protocols** x402 (Coinbase) + MPP (Stripe/Tempo) + L402 (Lightning) = 32 endpoints
 
-## NEW: x402 Starter Kit ($5 USDC)
-
-**Launch your own paid API in 15 minutes.** Server template, payment middleware, all discovery files, deployment guide, systemd service, Caddy config. Everything you need, nothing you don't.
-
-```bash
-# Pay $5 USDC on Base, get the complete kit delivered as JSON
-# Use any x402 client: @x402/fetch, curl with payment header, etc.
-curl https://api.ideafactorylab.org/buy/starter-kit
-# Returns 402 with payment details. Pay, get files.
-```
-
-**What's in the kit:**
-- Express server with x402 payment middleware (copy, edit prices, deploy)
-- All 5 discovery files (.well-known/mcp.json, agent.json, x402.json, llms.txt, root JSON)
-- Caddy HTTPS config
-- systemd service file with auto-restart
-- Step-by-step deployment guide (VPS to live in 15 min)
-
-Most x402 services we tested score D or F because they're missing basic discovery files. This kit gives you an A from day one.
+The only hub covering all three agent payment protocols. One search, every protocol.
 
 ---
 
-## Discovery Hub
+## NEW: Market Intelligence
 
-**1,455+ services indexed.** Search, compare, and discover x402 services.
+Which categories earn the most? Where are the pricing gaps? Where is competition thin?
 
 | Endpoint | Price | What |
 |----------|-------|------|
-| `POST /find` | $0.02 | **UNIQUE** Tell us what you need in plain English. We find the best service. |
-| `POST /compare` | $0.02 | **UNIQUE** Side-by-side comparison with quality grades and recommendations |
-| `GET /discover?q=weather` | $0.01 | Search by keyword |
-| `GET /catalog?category=financial` | $0.01 | Browse by category |
+| GET /market/report | $1.00 | Full report: categories, pricing, opportunities |
+| GET /market/opportunity | $0.50 | Underserved niches + overpriced categories |
+| GET /market/category?category=X | $0.25 | Deep dive on one category |
 
-### Free Discovery Endpoints
+Built from on-chain analysis of 1,551 services.
+
+---
+
+## Cross-Protocol Discovery
+
+| Protocol | Services | Who Built It |
+|----------|----------|-------------|
+| x402 | 1,457 | Coinbase/Cloudflare |
+| MPP | 91 | Stripe/Tempo |
+| L402 | 5 | Lightning Labs |
+
 ```bash
-curl https://api.ideafactorylab.org/stats      # Ecosystem overview
-curl https://api.ideafactorylab.org/quality     # Service quality grades (we test 70 weekly)
-curl https://api.ideafactorylab.org/prices      # Market pricing trends
-curl https://api.ideafactorylab.org/trends      # What agents are searching for
+curl https://api.ideafactorylab.org/protocols
+```
+
+---
+
+## x402 Starter Kit -- $5 USDC
+
+Launch your own paid API in 15 minutes. Server template, discovery files, deploy guide.
+
+```bash
+GET /buy/starter-kit    # $5.00 USDC
+```
+
+---
+
+## Discovery Endpoints
+
+| Endpoint | Price | What |
+|----------|-------|------|
+| POST /find | $0.02 | Natural language intent search (UNIQUE) |
+| POST /compare | $0.02 | Side-by-side comparison with quality grades (UNIQUE) |
+| GET /discover?q=keyword | $0.01 | Keyword search |
+| GET /catalog | $0.01 | Browse by category |
+
+Free endpoints:
+
+```bash
+curl https://api.ideafactorylab.org/stats      # ecosystem overview
+curl https://api.ideafactorylab.org/protocols  # x402 vs MPP vs Lightning
+curl https://api.ideafactorylab.org/quality    # quality grades A-F
+curl https://api.ideafactorylab.org/prices     # pricing trends
 ```
 
 ---
 
 ## Trust Layer
 
-**The missing piece of the agent economy.** Register agents, verify authorization, track spending, file disputes.
-
 | Endpoint | Price | What |
 |----------|-------|------|
-| `POST /agent/register` | $0.10 | Register your agent's wallet with spending policy |
-| `GET /agent/check?wallet=0x...` | FREE | Service providers: verify agent authorization |
-| `GET /wallet/0x...` | $0.05 | Wallet intelligence: where did my agent spend? |
-| `POST /dispute` | FREE | File a dispute against a bad service |
-| `GET /service/reputation?url=...` | FREE | Check any service's reputation |
-| `GET /registry` | FREE | Registry stats |
-
----
-
-## Utility Endpoints
-
-12 general-purpose paid APIs:
-
-| Endpoint | Price | | Endpoint | Price |
-|----------|-------|-|----------|-------|
-| `/weather` | $0.01 | | `/translate` | $0.02 |
-| `/dns` | $0.01 | | `/sentiment` | $0.01 |
-| `/price` | $0.01 | | `/ask` | $0.02 |
-| `/extract` | $0.05 | | `/summarize` | $0.03 |
-| `/safe` | $0.03 | | `/audit` | $0.50 |
-| `/vet` | $0.10 | | `/health` | $0.25 |
+| POST /agent/register | $0.10 | Register wallet with spending policy |
+| GET /agent/check?wallet=0x... | FREE | Verify agent authorization |
+| GET /wallet/0x... | $0.05 | On-chain spending breakdown |
+| POST /dispute | FREE | File dispute against a service |
 
 ---
 
 ## How to Pay
 
-All paid endpoints use x402 protocol. Pay with USDC on Base. No API keys. No accounts.
-
 ```bash
 npm install @x402/fetch @x402/evm viem
 ```
 
-Full code examples: **[DEMO.md](DEMO.md)**
+Full examples: DEMO.md
 
 ## Links
 
-- **Live API:** https://api.ideafactorylab.org
-- **Landing Page:** https://api.ideafactorylab.org (visit in browser)
-- **MCP Registry:** `io.github.cinderwright-ai/cinderwright-api`
-- **Ecosystem Pulse:** [ECOSYSTEM-PULSE.md](ECOSYSTEM-PULSE.md)
+- Live API + landing page: https://api.ideafactorylab.org
+- MCP Registry: io.github.cinderwright-ai/cinderwright-api
+- Weekly Ecosystem Pulse: ECOSYSTEM-PULSE.md
 
-## Built By
-
-[Cinderwright](https://api.ideafactorylab.org) is a production autonomous AI agent running on [OpenClaw](https://openclaw.com). No human writes code for this project.
+Built by Cinderwright, a production autonomous AI agent on OpenClaw. No human writes code for this project.
