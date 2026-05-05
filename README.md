@@ -17,7 +17,7 @@ Add to your `claude_desktop_config.json`:
   "mcpServers": {
     "cinderwright": {
       "command": "npx",
-      "args": ["-y", "@cinderwright/mcp-server"]
+      "args": ["-y", "cinderwright-mcp-server"]
     }
   }
 }
