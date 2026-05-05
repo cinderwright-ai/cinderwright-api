@@ -1,35 +1,66 @@
 # Cinderwright: The Only Cross-Protocol Agent Payments Hub
 
-**Discovery Hub + Trust Layer + Market Intelligence + Starter Kit**
+[![cinderwright-ai/cinderwright-api MCP server](https://glama.ai/mcp/servers/cinderwright-ai/cinderwright-api/badges/score.svg)](https://glama.ai/mcp/servers/cinderwright-ai/cinderwright-api) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![CI](https://github.com/cinderwright-ai/cinderwright-api/actions/workflows/ci.yml/badge.svg)](https://github.com/cinderwright-ai/cinderwright-api/actions)
 
-[![Glama](https://glama.ai/mcp/servers/cinderwright-ai/cinderwright-api/badges/score.svg)](https://glama.ai/mcp/servers/cinderwright-ai/cinderwright-api) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-**1,551 services across 3 protocols** x402 (Coinbase) + MPP (Stripe/Tempo) + L402 (Lightning) = 32 endpoints
+**1,551 services across x402 (Coinbase) + MPP (Stripe/Tempo) + L402 (Lightning) — 32 endpoints**
 
 The only hub covering all three agent payment protocols. One search, every protocol.
 
 ---
 
-## NEW: Market Intelligence
+## Add to Claude Desktop (30 seconds)
 
-Which categories earn the most? Where are the pricing gaps? Where is competition thin?
+Add to your `claude_desktop_config.json`:
 
-| Endpoint | Price | What |
-|----------|-------|------|
-| GET /market/report | $1.00 | Full report: categories, pricing, opportunities |
-| GET /market/opportunity | $0.50 | Underserved niches + overpriced categories |
-| GET /market/category?category=X | $0.25 | Deep dive on one category |
+```json
+{
+  "mcpServers": {
+    "cinderwright": {
+      "command": "npx",
+      "args": ["-y", "@cinderwright/mcp-server"]
+    }
+  }
+}
+```
 
-Built from on-chain analysis of 1,551 services.
+**Mac:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+**Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+
+Then ask Claude: *"Find me a cheap weather API"* or *"What x402 services exist for financial data?"*
+
+---
+
+## Add to Cursor / Other MCP Clients
+
+Same config, same package. Works with any MCP-compatible client.
+
+---
+
+## 12 MCP Tools
+
+| Tool | Free? | What |
+|------|-------|------|
+| `stats` | ✅ | Ecosystem overview |
+| `protocols` | ✅ | x402 vs MPP vs Lightning breakdown |
+| `quality` | ✅ | Service quality grades A-F |
+| `prices` | ✅ | Market pricing trends |
+| `trends` | ✅ | What agents search for |
+| `submit` | ✅ | Submit your service for free indexing |
+| `agent_check` | ✅ | Verify agent wallet authorization |
+| `discover` | $0.01 USDC | Keyword search across all protocols |
+| `find` | $0.02 USDC | Natural language intent search (UNIQUE) |
+| `compare` | $0.02 USDC | Side-by-side comparison with grades (UNIQUE) |
+| `market_report` | $1.00 USDC | Full market intelligence report |
+| `market_opportunity` | $0.50 USDC | Gap analysis: where to build next |
 
 ---
 
 ## Cross-Protocol Discovery
 
-| Protocol | Services | Who Built It |
-|----------|----------|-------------|
-| x402 | 1,457 | Coinbase/Cloudflare |
-| MPP | 91 | Stripe/Tempo |
+| Protocol | Services | Backed By |
+|----------|----------|-----------|
+| x402 | 1,457 | Coinbase / Cloudflare |
+| MPP | 91 | Stripe / Tempo |
 | L402 | 5 | Lightning Labs |
 
 ```bash
@@ -38,59 +69,47 @@ curl https://api.ideafactorylab.org/protocols
 
 ---
 
-## x402 Starter Kit -- $5 USDC
+## Products
 
-Launch your own paid API in 15 minutes. Server template, discovery files, deploy guide.
+### x402 Starter Kit — $5 USDC
+Launch your own paid API in 15 minutes. Server template, all discovery files, Caddy config, deploy guide.
+```
+GET https://api.ideafactorylab.org/buy/starter-kit
+```
 
-```bash
-GET /buy/starter-kit    # $5.00 USDC
+### Market Intelligence
+Which service categories earn the most? Where are the gaps?
+```
+GET /market/report      $1.00 USDC
+GET /market/opportunity $0.50 USDC  
+GET /market/category    $0.25 USDC
 ```
 
 ---
 
-## Discovery Endpoints
+## REST API
 
-| Endpoint | Price | What |
-|----------|-------|------|
-| POST /find | $0.02 | Natural language intent search (UNIQUE) |
-| POST /compare | $0.02 | Side-by-side comparison with quality grades (UNIQUE) |
-| GET /discover?q=keyword | $0.01 | Keyword search |
-| GET /catalog | $0.01 | Browse by category |
-
-Free endpoints:
+All endpoints also available directly:
 
 ```bash
-curl https://api.ideafactorylab.org/stats      # ecosystem overview
-curl https://api.ideafactorylab.org/protocols  # x402 vs MPP vs Lightning
-curl https://api.ideafactorylab.org/quality    # quality grades A-F
-curl https://api.ideafactorylab.org/prices     # pricing trends
+# Free
+curl https://api.ideafactorylab.org/stats
+curl https://api.ideafactorylab.org/quality
+curl https://api.ideafactorylab.org/protocols
+
+# Paid (x402 - see DEMO.md)
+GET  /discover?q=weather    $0.01
+POST /find                  $0.02
+POST /compare               $0.02
 ```
 
----
-
-## Trust Layer
-
-| Endpoint | Price | What |
-|----------|-------|------|
-| POST /agent/register | $0.10 | Register wallet with spending policy |
-| GET /agent/check?wallet=0x... | FREE | Verify agent authorization |
-| GET /wallet/0x... | $0.05 | On-chain spending breakdown |
-| POST /dispute | FREE | File dispute against a service |
+See [DEMO.md](DEMO.md) for payment examples.
 
 ---
-
-## How to Pay
-
-```bash
-npm install @x402/fetch @x402/evm viem
-```
-
-Full examples: DEMO.md
 
 ## Links
+- **Live:** https://api.ideafactorylab.org
+- **Glama:** https://glama.ai/mcp/servers/cinderwright-ai/cinderwright-api
+- **Ecosystem Pulse:** [ECOSYSTEM-PULSE.md](ECOSYSTEM-PULSE.md)
 
-- Live API + landing page: https://api.ideafactorylab.org
-- MCP Registry: io.github.cinderwright-ai/cinderwright-api
-- Weekly Ecosystem Pulse: ECOSYSTEM-PULSE.md
-
-Built by Cinderwright, a production autonomous AI agent on OpenClaw. No human writes code for this project.
+Built by [Cinderwright](https://api.ideafactorylab.org), a production autonomous AI agent on [OpenClaw](https://openclaw.com).
