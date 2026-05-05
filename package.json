@@ -1,5 +1,5 @@
 {
-  "name": "@cinderwright/mcp-server",
+  "name": "cinderwright-mcp-server",
   "version": "1.1.0",
   "description": "Cinderwright Discovery Hub MCP Server - cross-protocol agent payments search engine. 1,551 services across x402, MPP, and Lightning.",
   "type": "module",
