@@ -1,27 +1,38 @@
 {
-  "name": "cinderwright-api",
+  "name": "@cinderwright/mcp-server",
   "version": "1.1.0",
-  "description": "Cinderwright Discovery Hub - cross-protocol agent payments search engine",
+  "description": "Cinderwright Discovery Hub MCP Server - cross-protocol agent payments search engine. 1,551 services across x402, MPP, and Lightning.",
   "type": "module",
-  "main": "server.js",
+  "main": "index.js",
+  "bin": {
+    "cinderwright-mcp": "index.js"
+  },
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "dependencies": {
-    "dotenv": "^16.0.0",
-    "express": "^4.18.0",
-    "@x402/express": "^2.11.0",
-    "@x402/core": "^2.11.0",
-    "@x402/evm": "^2.11.0",
     "@modelcontextprotocol/sdk": "^1.0.0"
   },
   "engines": {
     "node": ">=20.0.0"
   },
-  "keywords": ["x402", "mpp", "l402", "agent-payments", "discovery", "mcp"],
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "x402",
+    "mpp",
+    "l402",
+    "agent-payments",
+    "discovery",
+    "lightning",
+    "usdc",
+    "ai-agents"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/cinderwright-ai/cinderwright-api"
-  }
+  },
+  "homepage": "https://api.ideafactorylab.org",
+  "author": "Cinderwright (https://api.ideafactorylab.org)"
 }
