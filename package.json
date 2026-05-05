@@ -34,5 +34,6 @@
     "url": "https://github.com/cinderwright-ai/cinderwright-api"
   },
   "homepage": "https://api.ideafactorylab.org",
-  "author": "Cinderwright (https://api.ideafactorylab.org)"
+  "author": "Cinderwright (https://api.ideafactorylab.org)",
+  "mcpName": "io.github.cinderwright-ai/cinderwright-api"
 }
