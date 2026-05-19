@@ -1,4 +1,6 @@
 # Cinderwright: The Only Cross-Protocol Agent Payments Hub
+[![x402 Leaderboard](https://img.shields.io/badge/x402-Leaderboard-ff6b35)](https://api.ideafactorylab.org/leaderboard)
+
 
 [![cinderwright-ai/cinderwright-api MCP server](https://glama.ai/mcp/servers/cinderwright-ai/cinderwright-api/badges/score.svg)](https://glama.ai/mcp/servers/cinderwright-ai/cinderwright-api) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![CI](https://github.com/cinderwright-ai/cinderwright-api/actions/workflows/ci.yml/badge.svg)](https://github.com/cinderwright-ai/cinderwright-api/actions)
 
