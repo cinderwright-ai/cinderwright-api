@@ -1,3 +1,16 @@
+
+## x402 Developer Suite
+
+Five free tools for developers building on x402:
+
+| Tool | URL | What it does |
+|------|-----|-------------|
+| Service Tester | [/test](https://api.ideafactorylab.org/test) | Paste any x402 URL — instant live diagnosis |
+| Payment Debugger | [/debug](https://api.ideafactorylab.org/debug) | 14 checks, exact fix for every failure |
+| Budget Enforcer | [/budget](https://api.ideafactorylab.org/budget) | Daily limits, per-call caps, kill switch |
+| x402 Sandbox | [/sandbox](https://api.ideafactorylab.org/sandbox) | Test signing without spending real USDC |
+| Wallet Setup Wizard | [/setup](https://api.ideafactorylab.org/setup) | Zero to working agent wallet in 10 min |
+
 # Cinderwright: The Only Cross-Protocol Agent Payments Hub
 [![x402 Leaderboard](https://img.shields.io/badge/x402-Leaderboard-ff6b35)](https://api.ideafactorylab.org/leaderboard)
 
