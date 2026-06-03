@@ -1,103 +1,152 @@
-# How to Use the Cinderwright Discovery Hub
+# Cinderwright Demo — Getting Started
 
-## Free Endpoints (No Payment Required)
-
-Try these right now — no wallet needed:
+## Free (no wallet needed)
 
 ```bash
 # Ecosystem stats
 curl https://api.ideafactorylab.org/stats
 
-# Quality report — how we grade x402 services
+# Search 2,811 services by keyword
+curl "https://api.ideafactorylab.org/discover?q=weather"
+curl "https://api.ideafactorylab.org/discover?q=translate"
+curl "https://api.ideafactorylab.org/discover?q=bitcoin+price"
+
+# Quality grades
 curl https://api.ideafactorylab.org/quality
 
-# Price intelligence — market pricing trends
+# Market pricing
 curl https://api.ideafactorylab.org/prices
-
-# What agents are searching for
-curl https://api.ideafactorylab.org/trends
-
-# Submit your x402 service for free indexing
-curl -X POST https://api.ideafactorylab.org/submit \
-  -H "Content-Type: application/json" \
-  -d '{"url":"https://your-api.com","name":"Your API","description":"What it does"}'
 ```
 
-## Paid Endpoints (x402 USDC on Base)
+---
 
-Paid endpoints return `402 Payment Required` with payment details in the `payment-required` header. Use the `@x402/fetch` client to handle payment automatically.
+## The Proxy (easiest way to use paid services)
 
-### Install the x402 Client
+No signing, no wallet keys in your code. Deposit USDC once, call anything.
 
+```bash
+# Step 1: create an account
+curl -X POST https://api.ideafactorylab.org/proxy/setup \
+  -H "Content-Type: application/json" \
+  -d '{"wallet": "0xYourBaseWalletAddress"}'
+# returns: { "key": "sk_cw_...", "deposit_address": "0x..." }
+
+# Step 2: send USDC on Base to that deposit address
+
+# Step 3: describe what you need
+curl -X POST https://api.ideafactorylab.org/proxy/do \
+  -H "X-CW-Key: sk_cw_your_key" \
+  -H "Content-Type: application/json" \
+  -d '{"task": "Bitcoin price now"}'
+# {"symbol":"BTC","price_usd":67475,"change_24h":-4.94,...}
+
+curl -X POST https://api.ideafactorylab.org/proxy/do \
+  -H "X-CW-Key: sk_cw_your_key" \
+  -H "Content-Type: application/json" \
+  -d '{"task": "weather in Tokyo"}'
+# {"location":"Tokyo","temp_c":"22","condition":"Heavy rain",...}
+
+curl -X POST https://api.ideafactorylab.org/proxy/do \
+  -H "X-CW-Key: sk_cw_your_key" \
+  -H "Content-Type: application/json" \
+  -d '{"task": "translate hello world to Japanese"}'
+# {"translated":"こんにちは世界","target_language":"Japanese",...}
+
+curl -X POST https://api.ideafactorylab.org/proxy/do \
+  -H "X-CW-Key: sk_cw_your_key" \
+  -H "Content-Type: application/json" \
+  -d '{"task": "sentiment of this review", "context": "The product was great but delivery was slow"}'
+# {"sentiment":"mixed","confidence":0.82,"summary":"Positive product, negative delivery"}
+
+# Check your balance and call history
+curl https://api.ideafactorylab.org/proxy/balance \
+  -H "X-CW-Key: sk_cw_your_key"
+
+# Call any indexed service directly by URL
+curl "https://api.ideafactorylab.org/proxy?url=https://some-x402-service.com/endpoint" \
+  -H "X-CW-Key: sk_cw_your_key"
+```
+
+**Pricing:** service cost + 10% markup. Bitcoin price: $0.011. Weather: $0.011. Translation: $0.022.
+
+Dashboard: https://api.ideafactorylab.org/proxy/dashboard
+
+---
+
+## Direct x402 Payment (for developers building payment-aware agents)
+
+Install:
 ```bash
 npm install @x402/fetch @x402/evm viem
 ```
 
-### Example: Search for Services
-
 ```javascript
-import { x402Client, wrapFetchWithPayment } from '@x402/fetch';
-import { registerExactEvmScheme } from '@x402/evm/exact/client';
-import { mnemonicToAccount } from 'viem/accounts';
+import { withPaymentInterceptor } from "@x402/fetch";
+import { createWalletClient, http } from "viem";
+import { privateKeyToAccount } from "viem/accounts";
+import { base } from "viem/chains";
 
-// Your wallet (needs USDC on Base)
-const account = mnemonicToAccount('your twelve word mnemonic phrase goes here ...');
-
-// Set up x402 client
-const client = new x402Client();
-registerExactEvmScheme(client, { signer: account });
-const paidFetch = wrapFetchWithPayment(fetch, client);
-
-// Search for weather services ($0.01)
-const res = await paidFetch('https://api.ideafactorylab.org/discover?q=weather');
-const data = await res.json();
-console.log(`Found ${data.total} weather services`);
-
-// Intent-based search ($0.02) — describe what you need
-const res2 = await paidFetch('https://api.ideafactorylab.org/find', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ intent: 'I need a cheap weather API for Tokyo' })
+const account = privateKeyToAccount("0xYourPrivateKey");
+const walletClient = createWalletClient({
+  account,
+  chain: base,
+  transport: http()
 });
-const recommendation = await res2.json();
-console.log('Best match:', recommendation.recommendation);
 
-// Compare services side-by-side ($0.02)
-const res3 = await paidFetch('https://api.ideafactorylab.org/compare', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ capability: 'weather', sort_by: 'quality' })
-});
-const comparison = await res3.json();
-console.log('Best overall:', comparison.recommendation.best_overall);
-console.log('Cheapest:', comparison.recommendation.cheapest);
+const fetchWithPayment = withPaymentInterceptor(fetch, walletClient);
+
+// Find a service
+const discovery = await fetch(
+  "https://api.ideafactorylab.org/discover?q=weather"
+).then(r => r.json());
+
+const serviceUrl = discovery.results[0].full_url + "?location=Tokyo";
+
+// Call it — payment happens automatically if needed
+const response = await fetchWithPayment(serviceUrl);
+const data = await response.json();
+console.log(data);
 ```
 
-### All Paid Endpoints
+---
 
-| Endpoint | Method | Price | Description |
-|----------|--------|-------|-------------|
-| /discover?q=keyword | GET | $0.01 | Search by keyword |
-| /find | POST | $0.02 | Intent-based discovery (UNIQUE) |
-| /compare | POST | $0.02 | Side-by-side comparison (UNIQUE) |
-| /catalog | GET | $0.01 | Browse by category |
-| /audit | POST | $0.50 | Agent governance audit |
-| /vet | POST | $0.10 | Prompt safety vetting |
-| /extract | POST | $0.05 | Web content extraction |
-| /ask | POST | $0.02 | LLM inference |
-| /translate | POST | $0.02 | Text translation |
-| /weather | GET | $0.01 | Weather forecast |
-| /dns | GET | $0.01 | DNS lookup |
-| /sentiment | POST | $0.01 | Sentiment analysis |
-| /price | GET | $0.01 | Crypto prices |
-| /safe | POST | $0.03 | URL safety scanner |
-| /summarize | POST | $0.03 | Text summarizer |
-| /health | POST | $0.25 | Config health check |
+## In Claude Desktop (MCP)
 
-## What Makes Us Different
+Without proxy key (discovery only):
+```json
+{
+  "mcpServers": {
+    "cinderwright": {
+      "command": "npx",
+      "args": ["-y", "cinderwright-mcp-server"]
+    }
+  }
+}
+```
 
-- **Intent Search** — describe what you need in natural language, we find the best match
-- **Quality Grades** — we test 70 services weekly and grade them A-F (avg: 34/100, we're the only A)
-- **Comparison Engine** — side-by-side with best/cheapest/fastest recommendations
-- **Price Intelligence** — track pricing trends across the ecosystem
-- **1,455+ services indexed** with daily crawling and health checks
+With proxy key (full access, recommended):
+```json
+{
+  "mcpServers": {
+    "cinderwright": {
+      "command": "npx",
+      "args": ["-y", "cinderwright-mcp-server"],
+      "env": { "CW_KEY": "sk_cw_your_key_here" }
+    }
+  }
+}
+```
+
+Then ask Claude: "Get the Bitcoin price" or "What's the weather in London?"
+
+---
+
+## Developer Tools (all free)
+
+| Tool | URL |
+|------|-----|
+| Service Tester | https://api.ideafactorylab.org/test |
+| Payment Debugger | https://api.ideafactorylab.org/debug |
+| x402 Sandbox | https://api.ideafactorylab.org/sandbox |
+| Budget Enforcer | https://api.ideafactorylab.org/budget |
+| Wallet Setup | https://api.ideafactorylab.org/setup |
