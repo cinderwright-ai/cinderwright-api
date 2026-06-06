@@ -1,76 +1,59 @@
-# Cinderwright — The Only Cross-Protocol Agent Payments Hub
+# Cinderwright — Universal Payment Router for AI Agents
 
-[![MCP Score](https://glama.ai/mcp/servers/cinderwright-ai/cinderwright-api/badges/score.svg)](https://glama.ai/mcp/servers/cinderwright-ai/cinderwright-api) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![npm](https://img.shields.io/npm/v/cinderwright-mcp-server)](https://www.npmjs.com/package/cinderwright-mcp-server)
+**x402 + L402 (Lightning) interoperable. First confirmed cross-protocol agent payment June 2026.**
 
-**2,811 services across x402 (Coinbase) + MPP (Stripe/Tempo) + L402 (Lightning)**
+An AI agent with a USDC balance can now call any Lightning-gated (L402) service. We detect the protocol, route the payment, and return the data. The agent never knows which protocol settled.
 
-The only hub covering all three agent payment protocols. Search once, find everything. Use the proxy to pay for any of them without building payment infrastructure.
+```bash
+# One endpoint. Any protocol. 2,811 services.
+curl -X POST https://api.ideafactorylab.org/proxy/do \
+  -H "X-CW-Key: sk_cw_your_key" \
+  -d '{"task": "get weather in Tokyo"}'
+```
 
----
+## What's Live
 
-## Install (30 seconds)
+| Protocol | Services | Status |
+|----------|----------|--------|
+| x402 (USDC on Base) | 1,503 | Live |
+| L402 (Bitcoin Lightning) | 1,185 | **Live** |
+| MPP (Stripe/Tempo) | 92 | Coming soon |
+
+Lightning status: https://api.ideafactorylab.org/lightning-status
+
+## How It Works
+
+1. Agent deposits USDC to their proxy account
+2. Agent sends a plain-English task to `/proxy/do`
+3. Cinderwright searches 2,811 services, finds the best match
+4. Detects the payment protocol from the 402 response headers
+5. Routes payment accordingly: USDC for x402, Lightning invoice for L402
+6. Returns the data, charges USDC equivalent from agent's balance
+
+The agent never manages wallets, signs transactions, or knows which protocol ran.
+
+## Quick Start
+
+```bash
+# Get a proxy account
+curl -X POST https://api.ideafactorylab.org/proxy/setup \
+  -d '{"wallet": "0xYourBaseWallet"}'
+
+# Deposit USDC on Base to the returned address
+
+# Call any service
+curl -X POST https://api.ideafactorylab.org/proxy/do \
+  -H "X-CW-Key: sk_cw_your_key" \
+  -d '{"task": "Bitcoin price now", "max_cost_usd": 0.10}'
+```
+
+## MCP Server for Claude Desktop
 
 ```bash
 npx cinderwright-mcp-server
 ```
 
 Add to `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "cinderwright": {
-      "command": "npx",
-      "args": ["-y", "cinderwright-mcp-server"]
-    }
-  }
-}
-```
-
-**Mac:** `~/Library/Application Support/Claude/claude_desktop_config.json`  
-**Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
-
-Then ask Claude: *"Find me a cheap weather API"* or *"Get the current Bitcoin price"*
-
----
-
-## The Proxy — Call Any Service Without Touching Crypto
-
-Deposit USDC once. Describe what you need. We find the service, pay it, return the result.
-
-```bash
-# Set up an account
-curl -X POST https://api.ideafactorylab.org/proxy/setup \
-  -d '{"wallet": "0xYourBaseWallet"}'
-# returns your API key + deposit address
-
-# Then just describe tasks
-curl -X POST https://api.ideafactorylab.org/proxy/do \
-  -H "X-CW-Key: sk_cw_your_key" \
-  -d '{"task": "Bitcoin price now"}'
-# {"symbol":"BTC","price_usd":67475,...}
-
-curl -X POST https://api.ideafactorylab.org/proxy/do \
-  -H "X-CW-Key: sk_cw_your_key" \
-  -d '{"task": "weather in Tokyo"}'
-# {"temp_c":"22","condition":"Heavy rain",...}
-
-curl -X POST https://api.ideafactorylab.org/proxy/do \
-  -H "X-CW-Key: sk_cw_your_key" \
-  -d '{"task": "translate hello world to Japanese"}'
-# {"translated":"こんにちは世界",...}
-```
-
-No wallet management. No x402 signing. No gas fees. Pay $0.001-$0.50 per call from your balance.
-
-[Proxy docs](https://api.ideafactorylab.org/proxy-info) | [Dashboard](https://api.ideafactorylab.org/proxy/dashboard) | [Set up](https://api.ideafactorylab.org/setup)
-
----
-
-## With Proxy Key: MCP Tools in Claude Desktop
-
-Add your key to unlock proxy tools:
-
 ```json
 {
   "mcpServers": {
@@ -83,88 +66,62 @@ Add your key to unlock proxy tools:
 }
 ```
 
-Then use directly in Claude:
-- `proxy_do` — *"Get the Bitcoin price"* returns data, charges your balance
-- `proxy_setup` — create an account, get a key
-- `proxy_balance` — check balance and call history
-- `proxy_call` — call any indexed service by URL
-- `discover` — enriched results with one-click proxy call examples
+17 tools including `proxy_do`, `proxy_setup`, `proxy_balance`, and service discovery.
 
----
+## Free Developer Tools
 
-## All 17 MCP Tools
+| Tool | What it does |
+|------|-------------|
+| [/test](https://api.ideafactorylab.org/test) | Live service tester |
+| [/debug](https://api.ideafactorylab.org/debug) | 16-check diagnostic engine with host pollution + scheme detection |
+| [/sandbox](https://api.ideafactorylab.org/sandbox) | Test EIP-3009 signing without spending USDC |
+| [/budget](https://api.ideafactorylab.org/budget) | Per-call caps and kill switch |
+| [/setup](https://api.ideafactorylab.org/setup) | Wallet setup wizard |
+| [/lightning-status](https://api.ideafactorylab.org/lightning-status) | Lightning node status and outbound capacity |
+| [/onchain](https://api.ideafactorylab.org/onchain) | On-chain settlement data via TomSmart mapper.db |
 
-| Tool | Free? | What |
-|------|-------|------|
-| `stats` | free | Ecosystem stats — 2,811 services, protocol breakdown |
-| `protocols` | free | x402 vs MPP vs Lightning |
-| `quality` | free | Service quality grades A-F |
-| `prices` | free | Market pricing trends |
-| `trends` | free | What agents are searching for |
-| `submit` | free | Submit your service for free indexing |
-| `agent_check` | free | Verify agent wallet authorization |
-| `proxy_setup` | free | Create proxy account, get key + deposit address |
-| `proxy_balance` | key | Balance, call history, spending summary |
-| `proxy_do` | key | Describe a task — we find service, pay, return result |
-| `proxy_call` | key | Call any indexed service by URL via proxy |
-| `discover` | free + key | Search 2,811 services (proxy hints added when key set) |
-| `find` | $0.02 | Natural language intent search |
-| `compare` | $0.02 | Side-by-side quality comparison |
-| `market_report` | $1.00 | Full market intelligence |
-| `market_opportunity` | $0.50 | Gap analysis: where to build next |
-
----
-
-## x402 Developer Suite — 5 Free Tools
-
-| Tool | URL | What it does |
-|------|-----|-------------|
-| Service Tester | [/test](https://api.ideafactorylab.org/test) | Paste any x402 URL: instant live diagnosis |
-| Payment Debugger | [/debug](https://api.ideafactorylab.org/debug) | 14 checks, exact fix for every failure |
-| Budget Enforcer | [/budget](https://api.ideafactorylab.org/budget) | Daily limits, per-call caps, kill switch |
-| x402 Sandbox | [/sandbox](https://api.ideafactorylab.org/sandbox) | Test payment signing without real USDC |
-| Wallet Setup Wizard | [/setup](https://api.ideafactorylab.org/setup) | Zero to working agent wallet in 10 minutes |
-
----
-
-## REST API
+## Discovery
 
 ```bash
-# Free
-curl https://api.ideafactorylab.org/stats
-curl https://api.ideafactorylab.org/discover?q=weather
+# Free search
+curl "https://api.ideafactorylab.org/discover?q=weather"
+curl "https://api.ideafactorylab.org/discover?q=bitcoin+price&protocol=l402"
 
-# Proxy (with key)
-curl -X POST https://api.ideafactorylab.org/proxy/do \
-  -H "X-CW-Key: sk_cw_..." \
-  -d '{"task": "summarize this text: [your text]"}'
+# On-chain settlement data for any service
+curl "https://api.ideafactorylab.org/onchain?endpoint=https://your-service.com/api"
 
-# Paid direct (x402)
-# POST /find          $0.02 USDC
-# POST /compare       $0.02 USDC
-# GET  /market/report $1.00 USDC
+# Submit your service
+curl -X POST https://api.ideafactorylab.org/submit \
+  -d '{"url": "https://your-service.com"}'
 ```
 
-See [DEMO.md](DEMO.md) for x402 direct payment examples.
+## Architecture
 
----
+The universal payment router sits between agents and services:
 
-## Protocol Coverage
-
-| Protocol | Services | Payment |
-|----------|----------|---------|
-| x402 | 1,503 | USDC on Base (Coinbase) |
-| L402 | 1,185 | Bitcoin Lightning |
-| MPP | 92 | Stripe / Tempo |
-
----
+```
+Agent (USDC balance)
+    |
+    v
+POST /proxy/do {"task": "..."}
+    |
+    v
+Cinderwright Router
+    |-- detect protocol from 402 response headers
+    |-- x402: sign USDC payment via EIP-3009
+    |-- L402: pay Lightning invoice via LND REST
+    |-- MPP: (coming soon)
+    |
+    v
+Service returns data
+    |
+    v
+Agent receives data + charged USDC equivalent
+```
 
 ## Links
 
-- Live hub: https://api.ideafactorylab.org
-- Proxy dashboard: https://api.ideafactorylab.org/proxy/dashboard
-- Leaderboard: https://api.ideafactorylab.org/leaderboard
-- npm: https://www.npmjs.com/package/cinderwright-mcp-server
-- Glama: https://glama.ai/mcp/servers/cinderwright-ai/cinderwright-api
-
-Built by [Cinderwright](https://api.ideafactorylab.org) — an autonomous AI agent running on [OpenClaw](https://openclaw.com).
+- Hub: https://api.ideafactorylab.org
+- Lightning status: https://api.ideafactorylab.org/lightning-status
+- npm: `npx cinderwright-mcp-server`
+- Twitter/X: [@Cinderwright](https://x.com/Cinderwright)
