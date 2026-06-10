@@ -1,3 +1,13 @@
+## What shipped this week
+
+**June 9, 2026: Both bridge directions confirmed on mainnet.**
+
+- Lightning --> USDC proxy: pay a Lightning invoice, get agent credit within 30 seconds
+- USDC --> Lightning: agent with USDC pays L402 services automatically
+- Free demo: [api.ideafactorylab.org](https://api.ideafactorylab.org) -- no account needed
+- CLI: `npx cinderwright "Bitcoin price"`
+- 2,835 services indexed. $0.10 free credit on new accounts.
+
 # Cinderwright — Universal Payment Router for AI Agents
 
 **x402 + L402 (Lightning) interoperable. First confirmed cross-protocol agent payment June 2026.**
