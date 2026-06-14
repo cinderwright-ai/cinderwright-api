@@ -1,4 +1,4 @@
-# Cinderwright Ecosystem Pulse — Week of 2026-05-10
+# Cinderwright Ecosystem Pulse — Week of 2026-06-14
 
 *Generated automatically by the Cinderwright Discovery Hub*
 
@@ -6,66 +6,64 @@
 
 | Metric | Value |
 |--------|-------|
-| Total services indexed | 2764 |
-| Services alive | 1429 |
-| Services down | 1335 |
-| New this week | 1213 |
-| Total endpoints | 2050 |
-| Average price | $1.790 |
+| Total services indexed | 2838 |
+| Services alive | 1465 |
+| Services down | 1373 |
+| New this week | 1 |
+| Total endpoints | 2426 |
+| Average price | $1.778 |
 | Median price | $0.010 |
 
 ## Category Breakdown (Alive Services)
 
-- **other:** 355 endpoints
-- **uncategorized:** 330 endpoints
-- **financial:** 228 endpoints
-- **utility:** 201 endpoints
-- **agent:** 175 endpoints
-- **security:** 89 endpoints
-- **data:** 86 endpoints
-- **tools:** 84 endpoints
-- **ai:** 81 endpoints
-- **real-time-data:** 78 endpoints
-- **data-feed:** 70 endpoints
-- **extraction:** 60 endpoints
-- **llm:** 47 endpoints
-- **identity:** 43 endpoints
-- **media:** 33 endpoints
+- **uncategorized:** 410 endpoints
+- **financial:** 402 endpoints
+- **other:** 353 endpoints
+- **utility:** 199 endpoints
+- **agent:** 162 endpoints
+- **security:** 131 endpoints
+- **data-feed:** 102 endpoints
+- **ai:** 99 endpoints
+- **data:** 88 endpoints
+- **tools:** 74 endpoints
+- **real-time-data:** 71 endpoints
+- **extraction:** 64 endpoints
+- **llm:** 54 endpoints
+- **identity:** 48 endpoints
+- **media:** 43 endpoints
+- **video:** 34 endpoints
 - **compute:** 19 endpoints
 - **guides:** 18 endpoints
-- **bitcoin:** 15 endpoints
+- **bitcoin:** 11 endpoints
 - **AI:** 8 endpoints
-- **research:** 4 endpoints
+- **research:** 5 endpoints
 - **compliance:** 4 endpoints
 - **communication:** 4 endpoints
 - **governance:** 4 endpoints
-- **social:** 3 endpoints
-- **crypto:** 3 endpoints
 - **utilities:** 3 endpoints
 - **knowledge:** 2 endpoints
+- **crypto:** 2 endpoints
+- **social:** 2 endpoints
 - **storage:** 2 endpoints
+- **intelligence:** 2 endpoints
 - **finance:** 1 endpoints
+- **technology:** 1 endpoints
+- **education:** 1 endpoints
+- **consulting:** 1 endpoints
+- **scraping:** 1 endpoints
+- **search:** 1 endpoints
 
 ## Fastest Services (Response Time)
 
-1. **apimesh.xyz/.well-known/x402.jso** — 6ms (https://apimesh.xyz/.well-known/x402.json)
-2. **apimesh.xyz/.well-known/openapi.** — 9ms (https://apimesh.xyz/.well-known/openapi.json)
-3. **Mogami** — 29ms (https://mogami.tech/#examples)
-4. **x402.twit.sh/tweets** — 33ms (https://x402.twit.sh/tweets)
-5. **x402.twit.sh/lists/tweets** — 34ms (https://x402.twit.sh/lists/tweets)
+1. **x402 API Network** — 2ms (https://x402.fatihai.app)
+2. **Gpubridge** — 2ms (https://gpubridge.xyz)
+3. **apimesh.xyz/.well-known/x402.jso** — 6ms (https://apimesh.xyz/.well-known/x402.json)
+4. **Simplescraper** — 9ms (https://simplescraper.io)
+5. **apimesh.xyz/.well-known/openapi.** — 10ms (https://apimesh.xyz/.well-known/openapi.json)
 
 ## New Services This Week
 
-- **BitTuitive** — BitTuitive (https://satring.com/service/ittuitive)
-- **l402-kit Demo API** — l402-kit Demo API (https://satring.com/service/l402-kit-demo-api)
-- **PowForge DoI Oracle** — PowForge DoI Oracle (https://satring.com/service/powforge-doi-oracle-1)
-- **Ollama LLM Inference (L402)** — Ollama LLM Inference (L402) (https://satring.com/service/ollama-llm-inference-l402)
-- **PowForge DoI Oracle** — PowForge DoI Oracle (https://satring.com/service/powforge-doi-oracle)
-- **L402 Apps: Get APIs Directory** — Get the complete JSON listing of all L402-powered API endpoints. (https://www.l402apps.com/api/apis)
-- **Mutinynet Faucet** — Lightning-gated faucet on Bitcoin's Mutinynet testnet. Pay a small L402 invoice  (https://faucet.mutinynet.com/api/l402)
-- **AIProx — Multi-Rail Agent Orchestrator** — Multi-agent AI orchestration with inline L402 payments. 15 hireable agents: infe (https://aiprox.dev/api/orchestrate)
-- **Advanced NWC Implementation** — Production-grade NWC patterns � relay infrastructure, payment orchestration, mul (https://api.lightningenable.com/api/l402/content/nwc-wallet-integration.md)
-- **Agent Fleet Economics** — Managing 10-100+ AI agents � centralized budgets, wallet architecture, automated (https://api.lightningenable.com/api/l402/content/agent-fleet-economics.md)
+- **nemotron-3-ultra-550b-a55b (L402)** — nvidia/nemotron-3-ultra-550b-a55b inference via x402 USDC on Base, 37 sats (https://llm402.ai/v1/chat/completions/nemotron-3-ultra-550b-a55b)
 
 ## Quality Report (Canary Service)
 
