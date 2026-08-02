@@ -1,4 +1,4 @@
-# Cinderwright Ecosystem Pulse — Week of 2026-07-26
+# Cinderwright Ecosystem Pulse — Week of 2026-08-02
 
 *Generated automatically by the Cinderwright Discovery Hub*
 
@@ -6,31 +6,31 @@
 
 | Metric | Value |
 |--------|-------|
-| Total services indexed | 6536 |
-| Services alive | 6438 |
-| Services down | 98 |
-| New this week | 132 |
-| Total endpoints | 7954 |
-| Average price | $3.051 |
+| Total services indexed | 6657 |
+| Services alive | 6654 |
+| Services down | 3 |
+| New this week | 243 |
+| Total endpoints | 8314 |
+| Average price | $3.105 |
 | Median price | $0.002 |
 
 ## Category Breakdown (Alive Services)
 
-- **uncategorized:** 4703 endpoints
-- **ai:** 690 endpoints
-- **financial:** 600 endpoints
+- **uncategorized:** 4786 endpoints
+- **ai:** 720 endpoints
+- **financial:** 701 endpoints
+- **utility:** 322 endpoints
 - **agent:** 317 endpoints
-- **utility:** 256 endpoints
-- **data-feed:** 181 endpoints
-- **security:** 173 endpoints
-- **extraction:** 126 endpoints
+- **data-feed:** 198 endpoints
+- **security:** 192 endpoints
+- **extraction:** 133 endpoints
+- **llm:** 132 endpoints
 - **data:** 123 endpoints
 - **real-time-data:** 115 endpoints
-- **llm:** 107 endpoints
 - **tools:** 94 endpoints
-- **media:** 72 endpoints
-- **identity:** 64 endpoints
-- **other:** 54 endpoints
+- **media:** 83 endpoints
+- **identity:** 67 endpoints
+- **other:** 53 endpoints
 - **bitcoin:** 49 endpoints
 - **energy:** 48 endpoints
 - **video:** 35 endpoints
@@ -46,9 +46,9 @@
 - **communication:** 5 endpoints
 - **lightning:** 5 endpoints
 - **l402:** 5 endpoints
-- **search:** 4 endpoints
 - **utilities:** 3 endpoints
 - **podcasts:** 3 endpoints
+- **search:** 3 endpoints
 - **finance:** 2 endpoints
 - **social:** 2 endpoints
 - **earn:** 2 endpoints
@@ -64,24 +64,24 @@
 
 ## Fastest Services (Response Time)
 
-1. **Pokemon API** — 1ms (https://api.ideafactorylab.org)
-2. **Random Dog Fact** — 1ms (https://api.ideafactorylab.org)
-3. **URL Shortener** — 1ms (https://api.ideafactorylab.org)
-4. **URL to QR Code** — 1ms (https://api.ideafactorylab.org)
-5. **Country Flag API** — 1ms (https://api.ideafactorylab.org)
+1. **Exchange Rates** — 1ms (https://api.ideafactorylab.org)
+2. **IP Geolocation** — 1ms (https://api.ideafactorylab.org)
+3. **Generate QR Code From URL** — 1ms (https://api.ideafactorylab.org)
+4. **Random Advice** — 1ms (https://api.ideafactorylab.org)
+5. **Random Cat Fact** — 1ms (https://api.ideafactorylab.org)
 
 ## New Services This Week
 
-- **World Bank Education Spending by Country** — Retrieves education expenditure as a percentage of GDP for a specific country fr (https://api.ideafactorylab.org)
-- **SYNTHORA** — Malla de agentes A2A de HERGERT SYNTHORA: servicios especializados por micropago (https://pay.hergertsynthora.com)
-- **longcat-2.0 (L402)** — meituan/longcat-2.0 inference via x402 USDC on Base, 21 sats (https://llm402.ai/v1/chat/completions/longcat-2.0)
-- **gemini-3.5-flash-lite (L402)** — google/gemini-3.5-flash-lite inference via x402 USDC on Base, 35 sats (https://llm402.ai/v1/chat/completions/gemini-3.5-flash-lite)
-- **gemini-3.6-flash (L402)** — google/gemini-3.6-flash inference via x402 USDC on Base, 105 sats (https://llm402.ai/v1/chat/completions/gemini-3.6-flash)
-- **glm-5v-turbo (L402)** — z-ai/glm-5v-turbo inference via x402 USDC on Base, 56 sats (https://llm402.ai/v1/chat/completions/glm-5v-turbo)
-- **laguna-s-2.1 (L402)** — poolside/laguna-s-2.1 inference via x402 USDC on Base, 21 sats (https://llm402.ai/v1/chat/completions/laguna-s-2.1)
-- **claude-opus-4.1:batch (L402)** — anthropic/claude-opus-4.1:batch inference via x402 USDC on Base, 519 sats (https://llm402.ai/v1/chat/completions/claude-opus-4.1%3Abatch)
-- **claude-opus-4.5:batch (L402)** — anthropic/claude-opus-4.5:batch inference via x402 USDC on Base, 173 sats (https://llm402.ai/v1/chat/completions/claude-opus-4.5%3Abatch)
-- **claude-opus-4.6:batch (L402)** — anthropic/claude-opus-4.6:batch inference via x402 USDC on Base, 173 sats (https://llm402.ai/v1/chat/completions/claude-opus-4.6%3Abatch)
+- **Octodamus Market Intelligence API** — Real-time market intelligence for autonomous AI agents: Oracle trading signals ( (https://api.octodamus.com)
+- **Octodamus Market Intelligence API** — Real-time market intelligence for autonomous AI agents: Oracle trading signals ( (https://octodamus.com)
+- **Langston** — x402 service (auto-discovered) (https://langston.click)
+- **Kaisha-api** — Official-data lookups for Japanese companies, for AI agents — including the only (https://kaisha-api.hp-vladic.workers.dev)
+- **Bountyapi** — x402 service (auto-discovered) (https://bountyapi.com)
+- **JarvisClaw** — AI API routing platform — 40+ models, marketplace services, pay per call via x40 (https://api.jarvisclaw.ai)
+- **Agents** — x402 service (auto-discovered) (https://agents.ai-rook.com)
+- **Asset-forge-hire** — x402 service (auto-discovered) (https://asset-forge-hire.vercel.app)
+- **agenttoll.dev** — Paid MCP and HTTP tools for prediction market intelligence, OSINT feeds, legal/r (https://agenttoll.dev)
+- **Lazaretto** — x402 service (auto-discovered) (https://lazaretto.dev)
 
 ## Quality Report (Canary Service)
 
