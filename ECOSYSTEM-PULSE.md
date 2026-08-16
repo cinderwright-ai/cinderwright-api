@@ -1,4 +1,4 @@
-# Cinderwright Ecosystem Pulse — Week of 2026-08-02
+# Cinderwright Ecosystem Pulse — Week of 2026-08-16
 
 *Generated automatically by the Cinderwright Discovery Hub*
 
@@ -6,35 +6,35 @@
 
 | Metric | Value |
 |--------|-------|
-| Total services indexed | 6657 |
-| Services alive | 6654 |
-| Services down | 3 |
-| New this week | 243 |
-| Total endpoints | 8314 |
-| Average price | $3.105 |
+| Total services indexed | 6824 |
+| Services alive | 6674 |
+| Services down | 150 |
+| New this week | 17 |
+| Total endpoints | 8342 |
+| Average price | $3.267 |
 | Median price | $0.002 |
 
 ## Category Breakdown (Alive Services)
 
 - **uncategorized:** 4786 endpoints
-- **ai:** 720 endpoints
-- **financial:** 701 endpoints
-- **utility:** 322 endpoints
-- **agent:** 317 endpoints
-- **data-feed:** 198 endpoints
-- **security:** 192 endpoints
+- **ai:** 771 endpoints
+- **financial:** 703 endpoints
+- **agent:** 314 endpoints
+- **utility:** 309 endpoints
+- **security:** 189 endpoints
+- **data-feed:** 189 endpoints
 - **extraction:** 133 endpoints
-- **llm:** 132 endpoints
-- **data:** 123 endpoints
+- **llm:** 130 endpoints
+- **data:** 120 endpoints
 - **real-time-data:** 115 endpoints
-- **tools:** 94 endpoints
+- **tools:** 99 endpoints
 - **media:** 83 endpoints
 - **identity:** 67 endpoints
 - **other:** 53 endpoints
 - **bitcoin:** 49 endpoints
 - **energy:** 48 endpoints
 - **video:** 35 endpoints
-- **compute:** 24 endpoints
+- **compute:** 23 endpoints
 - **guides:** 18 endpoints
 - **nostr:** 14 endpoints
 - **crypto:** 12 endpoints
@@ -46,9 +46,9 @@
 - **communication:** 5 endpoints
 - **lightning:** 5 endpoints
 - **l402:** 5 endpoints
+- **search:** 4 endpoints
 - **utilities:** 3 endpoints
 - **podcasts:** 3 endpoints
-- **search:** 3 endpoints
 - **finance:** 2 endpoints
 - **social:** 2 endpoints
 - **earn:** 2 endpoints
@@ -61,6 +61,9 @@
 - **education:** 1 endpoints
 - **consulting:** 1 endpoints
 - **scraping:** 1 endpoints
+- **email:** 1 endpoints
+- **market-data:** 1 endpoints
+- **blockchain:** 1 endpoints
 
 ## Fastest Services (Response Time)
 
@@ -72,16 +75,16 @@
 
 ## New Services This Week
 
-- **Octodamus Market Intelligence API** — Real-time market intelligence for autonomous AI agents: Oracle trading signals ( (https://api.octodamus.com)
-- **Octodamus Market Intelligence API** — Real-time market intelligence for autonomous AI agents: Oracle trading signals ( (https://octodamus.com)
-- **Langston** — x402 service (auto-discovered) (https://langston.click)
-- **Kaisha-api** — Official-data lookups for Japanese companies, for AI agents — including the only (https://kaisha-api.hp-vladic.workers.dev)
-- **Bountyapi** — x402 service (auto-discovered) (https://bountyapi.com)
-- **JarvisClaw** — AI API routing platform — 40+ models, marketplace services, pay per call via x40 (https://api.jarvisclaw.ai)
-- **Agents** — x402 service (auto-discovered) (https://agents.ai-rook.com)
-- **Asset-forge-hire** — x402 service (auto-discovered) (https://asset-forge-hire.vercel.app)
-- **agenttoll.dev** — Paid MCP and HTTP tools for prediction market intelligence, OSINT feeds, legal/r (https://agenttoll.dev)
-- **Lazaretto** — x402 service (auto-discovered) (https://lazaretto.dev)
+- **L402 Agent Mail** — Pay-per-request agent email over Lightning L402: create inbox (POST /api/mail/in (https://api.major-miners.com/api/mail/send)
+- **L402 Mempool Fee Oracle** — Bitcoin mempool fee recommendations in sat/vB from mempool.space. Optional detai (https://api.major-miners.com/api/fees)
+- **L402 On-chain TX Status** — Look up a Bitcoin transaction by txid via mempool.space: confirmation status, fe (https://api.major-miners.com/api/tx)
+- **muse-glimmer-30b (L402)** — meta/muse-glimmer-30b inference via x402 USDC on Base, 22 sats (https://llm402.ai/v1/chat/completions/muse-glimmer-30b)
+- **sakana-namazu (L402)** — sakana/sakana-namazu inference via x402 USDC on Base, 58 sats (https://llm402.ai/v1/chat/completions/sakana-namazu)
+- **solar-pro4 (L402)** — upstage/solar-pro4 inference via x402 USDC on Base, 21 sats (https://llm402.ai/v1/chat/completions/solar-pro4)
+- **Muse-Glimmer-30B (L402)** — meta-models/Muse-Glimmer-30B inference via x402 USDC on Base, 21 sats (https://llm402.ai/v1/chat/completions/Muse-Glimmer-30B)
+- **NVIDIA-Nemotron-3.5-Lightning (L402)** — nvidia/NVIDIA-Nemotron-3.5-Lightning inference via x402 USDC on Base, 21 sats (https://llm402.ai/v1/chat/completions/NVIDIA-Nemotron-3.5-Lightning)
+- **nemotron-3.5-lightning (L402)** — nvidia/nemotron-3.5-lightning inference via x402 USDC on Base, 21 sats (https://llm402.ai/v1/chat/completions/nemotron-3.5-lightning)
+- **seed-2.0-code (L402)** — bytedance-seed/seed-2.0-code inference via x402 USDC on Base, 43 sats (https://llm402.ai/v1/chat/completions/seed-2.0-code)
 
 ## Quality Report (Canary Service)
 
