@@ -1,4 +1,4 @@
-# Cinderwright Ecosystem Pulse — Week of 2026-08-16
+# Cinderwright Ecosystem Pulse — Week of 2026-08-30
 
 *Generated automatically by the Cinderwright Discovery Hub*
 
@@ -6,18 +6,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total services indexed | 6824 |
-| Services alive | 6674 |
-| Services down | 150 |
-| New this week | 17 |
-| Total endpoints | 8342 |
-| Average price | $3.267 |
+| Total services indexed | 6889 |
+| Services alive | 6716 |
+| Services down | 173 |
+| New this week | 54 |
+| Total endpoints | 8384 |
+| Average price | $3.312 |
 | Median price | $0.002 |
 
 ## Category Breakdown (Alive Services)
 
-- **uncategorized:** 4786 endpoints
-- **ai:** 771 endpoints
+- **uncategorized:** 4798 endpoints
+- **ai:** 779 endpoints
 - **financial:** 703 endpoints
 - **agent:** 314 endpoints
 - **utility:** 309 endpoints
@@ -25,19 +25,19 @@
 - **data-feed:** 189 endpoints
 - **extraction:** 133 endpoints
 - **llm:** 130 endpoints
-- **data:** 120 endpoints
+- **data:** 126 endpoints
 - **real-time-data:** 115 endpoints
 - **tools:** 99 endpoints
-- **media:** 83 endpoints
+- **media:** 87 endpoints
 - **identity:** 67 endpoints
 - **other:** 53 endpoints
 - **bitcoin:** 49 endpoints
 - **energy:** 48 endpoints
 - **video:** 35 endpoints
 - **compute:** 23 endpoints
+- **crypto:** 21 endpoints
 - **guides:** 18 endpoints
 - **nostr:** 14 endpoints
-- **crypto:** 12 endpoints
 - **compliance:** 9 endpoints
 - **AI:** 9 endpoints
 - **research:** 6 endpoints
@@ -49,6 +49,7 @@
 - **search:** 4 endpoints
 - **utilities:** 3 endpoints
 - **podcasts:** 3 endpoints
+- **geo:** 3 endpoints
 - **finance:** 2 endpoints
 - **social:** 2 endpoints
 - **earn:** 2 endpoints
@@ -75,16 +76,16 @@
 
 ## New Services This Week
 
-- **L402 Agent Mail** — Pay-per-request agent email over Lightning L402: create inbox (POST /api/mail/in (https://api.major-miners.com/api/mail/send)
-- **L402 Mempool Fee Oracle** — Bitcoin mempool fee recommendations in sat/vB from mempool.space. Optional detai (https://api.major-miners.com/api/fees)
-- **L402 On-chain TX Status** — Look up a Bitcoin transaction by txid via mempool.space: confirmation status, fe (https://api.major-miners.com/api/tx)
-- **muse-glimmer-30b (L402)** — meta/muse-glimmer-30b inference via x402 USDC on Base, 22 sats (https://llm402.ai/v1/chat/completions/muse-glimmer-30b)
-- **sakana-namazu (L402)** — sakana/sakana-namazu inference via x402 USDC on Base, 58 sats (https://llm402.ai/v1/chat/completions/sakana-namazu)
-- **solar-pro4 (L402)** — upstage/solar-pro4 inference via x402 USDC on Base, 21 sats (https://llm402.ai/v1/chat/completions/solar-pro4)
-- **Muse-Glimmer-30B (L402)** — meta-models/Muse-Glimmer-30B inference via x402 USDC on Base, 21 sats (https://llm402.ai/v1/chat/completions/Muse-Glimmer-30B)
-- **NVIDIA-Nemotron-3.5-Lightning (L402)** — nvidia/NVIDIA-Nemotron-3.5-Lightning inference via x402 USDC on Base, 21 sats (https://llm402.ai/v1/chat/completions/NVIDIA-Nemotron-3.5-Lightning)
-- **nemotron-3.5-lightning (L402)** — nvidia/nemotron-3.5-lightning inference via x402 USDC on Base, 21 sats (https://llm402.ai/v1/chat/completions/nemotron-3.5-lightning)
-- **seed-2.0-code (L402)** — bytedance-seed/seed-2.0-code inference via x402 USDC on Base, 43 sats (https://llm402.ai/v1/chat/completions/seed-2.0-code)
+- **USGS Earthquake Feed - Past Week Magnitude 4.5+** — Returns a GeoJSON feed of all earthquakes with magnitude 4.5 or greater from the (https://api.ideafactorylab.org)
+- **Library of Congress Subjects Search** — Searches the Library of Congress Subject Headings for terms matching a keyword,  (https://api.ideafactorylab.org)
+- **Moneytest Artifact Audit** — Deterministic audit for Markdown and plain text: counts, headings, links, SHA-25 (https://boulevard-mumbai-copyright-parameters.trycloudflare.com/v1/l402/audit)
+- **Moneytest Nostr Event Inspector** — Validate NIP-01 structure, recompute the event id, verify the Schnorr signature, (https://boulevard-mumbai-copyright-parameters.trycloudflare.com/v1/l402/nostr-event)
+- **Seven Checks Before an AI Agent Trusts a Nostr Event** — A practical 1,398-word Markdown guide with a tested JavaScript implementation fo (https://boulevard-mumbai-copyright-parameters.trycloudflare.com/v1/l402/nostr-validation-guide)
+- **attention is currency · List a token (L402)** — Token ladder. $50 USDC to list a mint — skin in the game. Raises are dimes. DEX  (https://www.attentioniscurrency.com/api/x402/trenches)
+- **attention is currency · List a token (Lightning)** — Token ladder. $50 USDC to list a mint — skin in the game. Raises are dimes. DEX  (https://www.attentioniscurrency.com/api/l402/trenches)
+- **deepseek-v4-flash-vision-exp (L402)** — deepseek/deepseek-v4-flash-vision-exp inference via x402 USDC on Base, 21 sats (https://llm402.ai/v1/chat/completions/deepseek-v4-flash-vision-exp)
+- **hy-mt2-1.8b (L402)** — tencent/hy-mt2-1.8b inference via x402 USDC on Base, 21 sats (https://llm402.ai/v1/chat/completions/hy-mt2-1.8b)
+- **hy-mt2-30b-a3b (L402)** — tencent/hy-mt2-30b-a3b inference via x402 USDC on Base, 21 sats (https://llm402.ai/v1/chat/completions/hy-mt2-30b-a3b)
 
 ## Quality Report (Canary Service)
 
